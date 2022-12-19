@@ -1,6 +1,6 @@
 <template>
   <button
-    type="button"
+    type="button" 
     class="btn btn-primary"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
@@ -19,8 +19,9 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <div @click="isShowModal" class="modal-header">
+          <!-- Tile từ app -->
+          <h5 class="modal-title" id="exampleModalLabel">{{Title}}</h5>
           <button
             type="button"
             class="btn-close"
@@ -92,6 +93,10 @@
 <script>
 export default {
   props: {
+    Title:{
+      tipe: String,
+      required: true
+    },
     userEdit: {
       tipe: Object,
       default: null,
@@ -122,6 +127,7 @@ export default {
 
   data() {
     return {
+ 
       student: {
         id: Math.floor(Math.random() * 1000),
         hoten: "",

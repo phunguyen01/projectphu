@@ -22,22 +22,22 @@
       </li>
     </ul>
   </nav>
-  <component :is="  selectedComponet"> </component>
+
 </template> 
 
 <script>
-import mot from "./components/mot.vue"
+
 import Table from "./components/Table.vue";
 
 export default {
   name: "App",
   components: {
     Table,
-    mot,
+    
   },
   data() {
     return {
-      selectedComponet: true
+  
     };
   },
 };

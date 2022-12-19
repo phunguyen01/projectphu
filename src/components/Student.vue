@@ -1,13 +1,12 @@
 <template>
   <button
-    type="button" 
+    type="button"
     class="btn btn-primary"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
   >
     Thêm
   </button>
-  
 
   <!-- Modal -->
   <div
@@ -21,7 +20,7 @@
       <div class="modal-content">
         <div @click="isShowModal" class="modal-header">
           <!-- Tile từ app -->
-          <h5 class="modal-title" id="exampleModalLabel">{{Title}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{ Title }}</h5>
           <button
             type="button"
             class="btn-close"
@@ -41,17 +40,18 @@
           />
           <label for="floatingInput">Họ và tên</label>
         </div>
+
         <div class="form-floating mb-3">
           <input
-            input
             v-model="student.namsinh"
-            type="email"
+            type="date"
             class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+            id="birthdaytime"
+            name="birthdaytime"
           />
           <label for="floatingInput">Năm sinh</label>
         </div>
+
         <div class="form-floating mb-3">
           <input
             input
@@ -91,11 +91,15 @@
 </template>
 
 <script>
+
+import "@vuepic/vue-datepicker/dist/main.css";
+
 export default {
+
   props: {
-    Title:{
+    Title: {
       tipe: String,
-      required: true
+      required: true,
     },
     userEdit: {
       tipe: Object,
@@ -127,7 +131,8 @@ export default {
 
   data() {
     return {
- 
+      date: null,
+
       student: {
         id: Math.floor(Math.random() * 1000),
         hoten: "",
